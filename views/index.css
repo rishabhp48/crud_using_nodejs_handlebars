@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Reggae+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap");
+
+* {
+  text-decoration: none;
+}
+
+body {
+}
+
+#logo {
+  font-family: Reggae One;
+  letter-spacing: 20px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.navbar-toggler-icon {
+  color: rgb(0, 195, 255);
+  border: 1px solid rgb(0, 195, 255);
+  padding: 0px 1em;
+}
+
+button.navbar-toggler {
+  color: rgb(0, 195, 255);
+}
+#navbarlogo {
+  color: rgb(0, 195, 255);
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 0px 1.7px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 99999;
+}
+li #home {
+  font-family: KoHo;
+  color: #000;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+#home:hover {
+  border-bottom: 1px solid rgb(0, 195, 255);
+  padding-bottom: 5px;
+  transition: all 0.4s;
+}
+
+li #signin {
+  color: #000;
+  float: left;
+}
+#signin:hover {
+  border-bottom: 1px solid rgb(0, 195, 255);
+  padding-bottom: 5px;
+  transition: all 0.4s;
+}
+
+.navbar-nav .right-menu {
+  display: flex;
+}

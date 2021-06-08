@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <title>X&nbsp;D&nbsp;B&nbsp;S</title>
+  </head>
+  <body>
+    {{>navbar}}
+
+    <div class="container form-container">
+      <form id="qa_order_form">
+        <h6 class="nav-tabs">Qa Order Details</h6>
+        <div class="form-info mt-3">
+          <div class="row">
+            <div class="order-id col-6">
+              <label for="orderid">Order-Id:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="order_id"
+                name="order_id"
+              />
+            </div>
+            <div class="order-id col-6">
+              <label for="order id">Client Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="client_name"
+                name="client_name"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="order-id col-6">
+              <label for="client_io">Client IO Number:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="client_io_number"
+                name="client_io_number"
+              />
+            </div>
+            <div class="order-id col-6">
+              <label for="order_name">Order Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="order_name"
+                name="order_name"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="order-id col-6">
+              <label for="start_delivery_date">Start Delivery Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="start_delivery_date"
+                name="start_delivery_date"
+              />
+            </div>
+            <div class="order-id col-6">
+              <label for="end_delivery_date">End Delivery Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="end_delivery_date"
+                name="end_delivery_date"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="order-id col-6">
+              <label for="qty">Qty :</label>
+              <input type="number" class="form-control" id="qty" name="qty" />
+            </div>
+            <div class="order-id col-6">
+              <label for="qa_approval_date">QA Approval Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="qa_approval_date"
+                name="qa_approval_date"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-outline-success mt-2"
+          id="submit-btn"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#submit-btn").on("click", (e) => {
+          location.reload();
+          e.preventDefault();
+          var data = {
+            order_id: $("#order_id").val(),
+            client_name: $("#client_name").val(),
+            client_io_number: $("#client_io_number").val(),
+            order_name: $("#order_name").val(),
+            start_delivery_date: $("#start_delivery_date").val(),
+            end_delivery_date: $("#end_delivery_date").val(),
+            qty: $("#qty").val(),
+            qa_approval_date: $("#qa_approval_date").val(),
+          };
+     
+          $.ajax({
+            url: "api/post_data",
+            method: "POST",
+            data: data,
+            success: (data) => {
+              alert(`Your Records for Order ID:  ${$("#order_id").val() } has been Successfully Saved`);
+            },
+            error: (err) => {
+              alert("order ID already exist")
+            },
+          });
+        });
+      });
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
